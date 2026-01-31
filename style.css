@@ -11,7 +11,11 @@ body{
     justify-content: space-between;
     border-bottom: solid black 1px;
     gap: 10px;
+    position: sticky;
+    top: 0px;
     align-items: center;
+    z-index: 1;
+    background-color: white;
 }
 .navbar__s1__title{
     color: #a435f0;
@@ -23,11 +27,13 @@ body{
     width: 60%;
     display: flex;
     gap: 10px;
+    background-color: white;
 }
 .navbar__s2 input{
     border: none;
     width: 100%;
     font-size: 16px;
+    background-color: transparent;
 }
 .navbar__s2 input:focus{
     outline: none;
@@ -35,6 +41,23 @@ body{
 .navbar__s3{
     display: flex;
     gap: 10px;
+}
+.mylearning{
+    position: relative;
+    cursor: pointer;
+}
+.mylearning__popup{
+    position: absolute;
+    background-color: white;
+    border: solid black 2px;
+    width: 100px;
+    top: 30px;
+    padding: 20px;
+    right: 0px;
+    display: none;
+}
+.mylearning:hover .mylearning__popup{
+    display: block;
 }
 .catagories{
     padding: 10px;
@@ -47,6 +70,40 @@ body{
     color: white;
     padding: 10px;
     border-radius: 30px;
+    border: #a435f0 solid 1px;
+}
+.catagories p:hover{
+    transition: 2s;
+    color: black;
+    background-color: transparent;
+    border: solid #a435f0 1px;
+    cursor: pointer;
+}
+.image{
+    position: relative;
+}
+.image__offer{
+    padding: 2%;
+    border: solid black 2px;
+    width: 25%;
+    background-color: white;
+    position: absolute;
+    top: 11%;
+    left: 5%;
+    animation: zoom;
+    animation-duration: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards; 
+}
+@keyframes zoom{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 .image img{
     width: 100%;
@@ -61,7 +118,9 @@ body{
     margin-top:  10px;
 }
 .course-card{
-    width: 350px
+    flex-grow: 1;
+    flex-basis: 20%;
+    margin: 5px;
 }
 .course-card img{
     height: 50%;
@@ -108,4 +167,26 @@ body{
     padding: 30px;
     color: white;
     background-color: black;
+}
+/* media quaries */
+@media screen and (max-width:600px){
+    body{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:600px){
+    .course-card{
+        flex-basis: 40%;
+    }
+    .catagories{
+        display: none;
+    }
+    .navbar__s2 , .navbar__s3{
+        display: none;
+    }
+}
+@media screen and (min-width:600px){
+    .navbar__s4{
+        display: none;
+    }
 }
